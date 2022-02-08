@@ -1,0 +1,134 @@
+{% extends 'bstgames/base.html' %}
+{% block title %}{{ title }}{% endblock %}
+{% block content %}
+    {% include 'bstgames/search_game.html' %}
+    {% include 'bstgames/nav_platforms.html' %}
+    <div class="row bg-light mt-3 p-4 rounded shadow border">
+        <h4><strong>{{ action.label }} - {{ game_platform.game }}</strong></h4>
+        <h6 class="text-muted">{{ game_platform.gameplatform }}</h6>
+        {% if markets %}
+        <div id='id_market_table' class="table-responsive">
+            <table class="table table-striped caption-top">
+                <caption>Interested users</caption>
+                <thead class="table-dark">
+                    <tr>
+                        <th scope="col">User</th>
+                        <th scope="col">State</th>
+                        <th scope="col">Locality</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Trade</th>
+                    </tr>
+                </thead>
+                <tbody id="id_market_tbody">
+                    {% for market in markets %}
+                        <tr>
+                            <td>
+                                {% if market.user.first_name %}
+                                    {{ market.user.first_name }} ({{ market.user.email }})
+                                {% else %}
+                                    {{ market.user.email }}
+                                {% endif %}
+                            </td>
+                            <td>{{ market.user.useraddress.state|default:"-" }}</td>
+                            <td>{{ market.user.useraddress.locality|default:"-" }}</td>
+                            <td>{{ market.price|default:"-" }}</td>
+                            <td>
+                                {% if market.trade.all %}
+                                    <button onclick="openModal('{{ market.user }}');" type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modal_trades">View</button>
+                                {% else %}
+                                    -
+                                {% endif %}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% else %}
+        <div id="div_id_warning" class="alert alert-warning alert-dismissible fade show" role="alert">
+            No one is trading for this game/platform at the moment.
+        </div>
+        {% endif %}
+    </div>
+    <div class="modal fade" id="modal_trades" tabindex="-1" aria-labelledby="modal_trades_label" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modal_trades_label"></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <ul id="id_modal_ul">
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block script %}
+    <script>
+        /*$('#id_market_table').hide();
+        $('#div_id_warning').hide();
+        $(function() {
+            var platform = this.value;
+            $.ajax({
+                method: 'GET',
+                url: "{% url 'bstgames:market-table-ajax' %}",
+                data: {platform: '{{ game_platform.gameplatform.pk }}', game: '{{ game_platform.game.pk }}', action: '{{ action.value }}'},
+                success: function(response) {
+                    var tbody = $('#id_market_tbody')[0];
+                    tbody.innerHTML = '';
+                    for (var resp in response) {
+                        var row = tbody.insertRow(0);
+                        var cell_user = row.insertCell(0);
+                        var cell_state = row.insertCell(1);
+                        var cell_locality = row.insertCell(2);
+                        var cell_price = row.insertCell(3);
+                        var cell_trade = row.insertCell(4);
+                        var user = response[resp].user ? response[resp].user : '-';
+                        cell_user.innerHTML = user;
+                        cell_state.innerHTML = response[resp].state ? response[resp].state : '-';
+                        cell_locality.innerHTML = response[resp].locality ? response[resp].locality : '-';
+                        cell_price.innerHTML = response[resp].price ? response[resp].price : '-';
+                        var trades = response[resp].trade;
+                        var trades_html = '-';
+                        if (trades) {
+                            trades_string = encodeURI(JSON.stringify(trades));
+                            user = encodeURI(user);
+                            trades_html = '<button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modal_trades" data-bs-user="'+user+'" data-bs-trades="'+trades_string+'">View</button>';
+                        }
+                        cell_trade.innerHTML = trades_html;
+                    };
+                    $('#div_id_warning').hide();
+                    $('#id_market_table').show();
+                },
+                error: function() {
+                    $('#id_market_table').hide();
+                    $('#div_id_warning').show();
+                }
+            });
+        });*/
+        function openModal(user) {
+            console.log(user.first_name);
+        }
+        var modalTrades = $('#modal_trades')[0];
+        modalTrades.addEventListener('show.bs.modal', function(event) {
+            var button = event.relatedTarget;
+            var user = decodeURI(button.getAttribute('data-bs-user'));
+            var trades = button.getAttribute('data-bs-trades');
+            var tradesJson = JSON.parse(decodeURI(trades));
+            var ul = modalTrades.querySelector('#id_modal_ul');
+            ul.innerHTML = "";
+            for (var trade in tradesJson) {
+                var li = document.createElement("li");
+                li.appendChild(document.createTextNode(tradesJson[trade]));
+                ul.appendChild(li);
+            };
+            var modalTitle = modalTrades.querySelector('.modal-title');
+            modalTitle.textContent = user;
+        });
+    </script>
+{% endblock %}

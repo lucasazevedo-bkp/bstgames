@@ -1,0 +1,7 @@
+<ul class="nav nav-pills justify-content-center bg-light">
+    {% for platform in platforms %}
+        <li class="nav-item">
+            <a class="nav-link{% if nbar == platform.platform %} active{% endif %}" {% if nbar == platform.platform %}aria-current="page"{% endif %} href="{% url 'bstgames:list-platform-games' pk=platform.pk %}">{{platform.platform}}</a>
+        </li>
+    {% endfor %}
+</ul>

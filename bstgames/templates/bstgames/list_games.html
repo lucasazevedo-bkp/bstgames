@@ -1,0 +1,81 @@
+{% extends 'bstgames/base.html' %}
+{% block title %}{{ title }}{% endblock %}
+{% block content %}
+    {% include 'bstgames/search_game.html' %}
+    {% include 'bstgames/nav_platforms.html' %}
+    {% if not game_list %}
+        <div class="alert alert-warning alert-dismissible fade show mt-3" role="alert">
+            No games found.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    {% else %}
+        <div class="row mt-3">
+            {% for game_platform in game_list %}
+                <div class="col-sm-4">
+                    <div class="card border-primary mb-3">
+                        <div class="card-header">
+                            <a href="{% url 'bstgames:detail-game' pk=game_platform.pk %}">{{ game_platform.game }}</a>
+                            <h6 class="text-muted">{{ game_platform.gameplatform }}</h6>
+                        </div>
+                        <a href="{% url 'bstgames:detail-game' pk=game_platform.pk %}"><img src="{% if game_platform.get_default_image %}/media/{{ game_platform.get_default_image.image.thumbnail }}{% else %}/media/image-not-found.png{% endif %}" class="mx-auto d-block mt-2 mb-2" width="117" height="147" alt="{{ game_platform.game }}"></a>
+                        <ul class="list-group list-group-flush">
+                            {% if game_platform.game.genre.all %}<li class="list-group-item"><strong>Genre:</strong> {{ game_platform.game.genre.all|join:", " }}</li>{% endif %}
+                            {% if game_platform.release_date %}<li class="list-group-item"><strong>Release Date:</strong> {{ game_platform.release_date }}</li>{% endif %}
+                            {% if game_platform.metascore %}<li class="list-group-item"><strong>Metascore:</strong> {{ game_platform.metascore }}/100</li>{% endif %}
+                        </ul>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <nav class="nav-paginator" aria-label="Games paginator">
+            <ul class="pagination justify-content-center">
+                {% if page_obj.has_previous %}
+                    <li class="page-item pagination-prev">
+                        <a class="page-link" href="{% if request.GET.q %}?q={{ request.GET.q }}&{% else %}?{% endif %}page={{ page_obj.previous_page_number }}" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                {% else %}
+                    <li class="page-item pagination-prev disabled">
+                        <a class="page-link" href="#" tabindex="-1" aria-disabled="True" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                {% endif %}
+                {% for i in page_obj.paginator.page_range %}
+                    {% if page_obj.number == i %}
+                        <li class="page-item active" aria-current="page">
+                        <span class="page-link">
+                            {{ i }}
+                        </span>
+                        </li>
+                    {% else %}
+                        <li class="page-item"><a class="page-link" href="{% if request.GET.q %}?q={{ request.GET.q }}&{% else %}?{% endif %}page={{ i }}">{{ i }}</a></li>
+                    {% endif %}
+                {% endfor %}
+                {% if page_obj.has_next %}
+                    <li class="page-item pagination-next">
+                        <a class="page-link" href="{% if request.GET.q %}?q={{ request.GET.q }}&{% else %}?{% endif %}page={{ page_obj.next_page_number }}" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                {% else %}
+                    <li class="page-item pagination-next disabled">
+                        <a class="page-link" href="#" tabindex="-1" aria-disabled="True" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                {% endif %}
+            </ul>
+        </nav>
+    {% endif %}
+{% endblock %}
+{% block script %}
+    {% if game_list %}
+        <script>
+            $(function() {
+                $(".pagination").rPage();
+            });
+        </script>
+    {% endif %}
+{% endblock %}

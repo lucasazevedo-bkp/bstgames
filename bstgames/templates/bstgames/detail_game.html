@@ -1,0 +1,46 @@
+{% extends 'bstgames/base.html' %}
+{% block title %}{{ title }}{% endblock %}
+{% block content %}
+    {% include 'bstgames/search_game.html' %}
+    {% include 'bstgames/nav_platforms.html' %}
+    <div class="row bg-light mt-3 p-4 rounded shadow border">
+        <div class="col-md-6">
+            {% for image in game_platform.gameplatformimage_set.all %}
+                <img src="/media/{{ image.image.thumbnail }}" class="img-thumbnail mb-3 img-thumbnail-custom" data-src="/media/{{ image.image }}" role="button" alt="{{ game_platform.game }}">
+            {% endfor %}
+            <img id="mainImage" src="{% if game_platform.get_default_image %}/media/{{ game_platform.get_default_image.image }}{% else %}/media/image-not-found.png{% endif %}" class="img-fluid" alt="{{ game_platform.game }}">
+        </div>
+        <hr class="d-md-none my-3">
+        <div class="col-md-6">
+            <h4><strong>{{ game_platform.game }}</strong></h4>
+            <h6 class="text-muted">{{ game_platform.gameplatform }}</h6>
+            <hr>
+            {% if game_platform.game.description %}<p><strong>Description:</strong> {{ game_platform.game.description }}</p>{% endif %}
+            {% if game_platform.game.genre.all %}<p><strong>Genre:</strong> {{ game_platform.game.genre.all|join:", " }}</p>{% endif %}
+            {% if game_platform.game.publisher %}<p><strong>Publisher:</strong> {{ game_platform.game.publisher }}</p>{% endif %}
+            {% if game_platform.game.developer %}<p><strong>Developer:</strong> {{ game_platform.game.developer }}</p>{% endif %}
+            {% if game_platform.release_date %}<p><strong>Release Date:</strong> {{ game_platform.release_date }}</p>{% endif %}
+            {% if game_platform.metascore %}<p><strong>Metascore:</strong> {{ game_platform.metascore }}/100</p>{% endif %}
+            {% if game_platform.game.age_rating %}<p><strong>Age Rating:</strong> {{ game_platform.game.age_rating }}+</p>{% endif %}
+            <hr>
+            <div class="row">
+                <div class="col">
+                    <a href="{% url 'bstgames:game-maket' pk=game_platform.pk action=actions.BUY.value %}" class="btn btn-success w-100" role="button">{{ actions.BUY.label }}</a>
+                </div>
+                <div class="col">
+                    <a href="{% url 'bstgames:game-maket' pk=game_platform.pk action=actions.SELL.value %}" class="btn btn-danger w-100" role="button">{{ actions.SELL.label }}</a>
+                </div>
+                <div class="col">
+                    <a href="{% url 'bstgames:game-maket' pk=game_platform.pk action=actions.TRADE.value %}" class="btn btn-warning w-100" role="button">{{ actions.TRADE.label }}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block script %}
+    <script>
+        $(".img-thumbnail").click(function() {
+            $("#mainImage").attr("src", $(this).attr("data-src"));
+        });
+    </script>
+{% endblock %}

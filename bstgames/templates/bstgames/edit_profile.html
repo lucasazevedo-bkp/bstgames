@@ -1,0 +1,38 @@
+{% extends 'bstgames/base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}Edit profile{% endblock %}
+{% block content %}
+    <div class="d-flex justify-content-center">
+        <div id="edit-profile-form" class="bg-light p-4 rounded shadow border">
+            <h4 class="text-center">Edit profile</h4>
+            <form method="post">
+                {% csrf_token %}
+                {{ form|crispy }}
+                {{ address_formset|crispy }}
+                <button type="submit" class="btn btn-primary">Edit profile</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}
+{% block script %}
+    <script>
+        var options = {
+            onComplete: function(postal_code) {
+                $.ajax({
+                    method: 'GET',
+                    url: "{% url 'bstgames:viacep-ajax' %}",
+                    data: {'postal_code': postal_code},
+                    success: function(response) {
+                        if (response.uf) {
+                            $('#id_state').val(response.uf);
+                        };
+                        if (response.localidade) {
+                            $('#id_locality').val(response.localidade);
+                        };
+                    }
+                });
+            }
+        };
+        $('#id_postal_code').mask('00000-000', options);
+    </script>
+{% endblock %}

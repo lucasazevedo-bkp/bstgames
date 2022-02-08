@@ -1,0 +1,7 @@
+{% load static %}
+<div class="d-flex justify-content-center">
+    <form action="{% url 'bstgames:search-game' %}" id="search-game" class="bg-light p-4 rounded shadow border input-group mb-3">
+        <input name="q" class="form-control" type="search" placeholder="Search game" aria-label="Search game">
+        <button type="submit" class="input-group-text"><img src="{% static 'bstgames/img/search.svg' %}" alt="Search" role="img"></button>
+    </form>
+</div>

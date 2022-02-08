@@ -1,0 +1,26 @@
+body {
+    padding-top: 4.5rem;
+}
+
+#login-form, 
+#signup-form, 
+#send-verify-email-form, 
+#reset-password-form, 
+#reset-password-confirm-form, 
+#edit-profile-form {
+    width: 400px;
+}
+
+.nav-paginator {
+    width:300px;
+    margin:0 auto;
+}
+
+.img-thumbnail-custom {
+    max-width:60px;
+    max-height:60px;
+}
+
+#search-game {
+    width: 600px;
+}

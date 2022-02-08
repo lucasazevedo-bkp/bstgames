@@ -1,0 +1,10 @@
+{% extends 'bstgames/base.html' %}
+{% block title %}{{ title }}{% endblock %}
+{% block content %}
+    {% include 'bstgames/search_game.html' %}
+    {% include 'bstgames/nav_platforms.html' %}
+    <div class="alert alert-warning alert-dismissible fade show mt-3" role="alert">
+        Page not found.
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+{% endblock %}
