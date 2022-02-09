@@ -19,7 +19,8 @@ Add an .env file in the root directory with the following variables:
 COMPOSE_PROJECT_NAME=
 POSTGRES_USER=
 POSTGRES_PASSWORD=
-POSTGRES_HOST=db # it must be "db" if you are using Docker
+# if you are using Docker, it must be "db" for POSTGRES_HOST=db
+POSTGRES_HOST= 
 DJANGO_SECRET_KEY=
 ```
 
@@ -29,8 +30,9 @@ And then, run the following command in the root directory:
 docker-compose up
 ```
 
-**Without Docker** (Remember that Python and PostgreSQL are needed, i recommend using a virtualenv): 
+**Without Docker**: 
 
+Remember that Python and PostgreSQL (create the database manually) are needed, i recommend using a virtualenv. 
 Set the above environment variables on your OS and then run the following commands in the root directory:
 
 ```sh
