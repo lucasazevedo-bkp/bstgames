@@ -1,6 +1,7 @@
 # BST Games
 > Buy, Sell and Trade used games.
 
+![Ubuntu Version](https://img.shields.io/badge/ubuntu-20.04-blue)
 ![Docker](https://img.shields.io/badge/docker-wsl2-blue)
 ![Python Version](https://img.shields.io/badge/python-3.8.12-blue)
 ![PostgreSQL Version](https://img.shields.io/badge/postgres-13.5-blue)
@@ -24,7 +25,7 @@ POSTGRES_HOST=
 DJANGO_SECRET_KEY=
 ```
 
-And then, run the following command in the root directory:
+Run the following command in the root directory:
 
 ```sh  
 docker-compose up
