@@ -14,7 +14,7 @@ Go to the root directory:
 
 **With Docker**:
 
-Add web.env and db.env files and fill in the variables:
+Add "web.env" and "db.env" files and fill in the variables:
 
 ```sh  
 # web.env
@@ -26,22 +26,19 @@ POSTGRES_USER=
 POSTGRES_PASSWORD=
 ```
 
-Run Docker:
+Run: docker, migrations, fixtures and create superuser to access /admin:
 
 ```sh  
 docker-compose up
-```
-
-Open another terminal and run the migrations and create superuser to access /admin:
-
-```sh  
+# Open new terminal
 docker exec bstgames_web python manage.py migrate
+docker exec bstgames_web python manage.py loaddata bstgames.json
 docker exec -it bstgames_web python manage.py createsuperuser
 ```
 
 **Without Docker**:
  
-Add web.env and db.env files and fill in the variables:
+Add "web.env" and "db.env" files and fill in the variables:
 
 ```sh  
 # web.env
@@ -53,11 +50,13 @@ POSTGRES_PASSWORD=
 POSTGRES_HOST=
 ```
 
-Install the requirements, run migrations/server and create superuser to access /admin:
+Install the requirements, run: migrations, fixtures, server and create superuser to access /admin:
 
 ```sh
 pip install -r requirements.txt
 python manage.py migrate
+python manage.py loaddata bstgames.json
 python manage.py runserver
+# Open new terminal
 python manage.py createsuperuser
 ```

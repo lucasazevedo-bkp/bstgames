@@ -1,0 +1,793 @@
+[
+    {
+        "model": "bstgames.gamegenre",
+        "pk": 1,
+        "fields": {
+            "genre": "Action RPG"
+        }
+    },
+    {
+        "model": "bstgames.gamegenre",
+        "pk": 2,
+        "fields": {
+            "genre": "MMORPG"
+        }
+    },
+    {
+        "model": "bstgames.gamegenre",
+        "pk": 27,
+        "fields": {
+            "genre": "FPS"
+        }
+    },
+    {
+        "model": "bstgames.gamegenre",
+        "pk": 28,
+        "fields": {
+            "genre": "Action"
+        }
+    },
+    {
+        "model": "bstgames.gamegenre",
+        "pk": 29,
+        "fields": {
+            "genre": "Adventure"
+        }
+    },
+    {
+        "model": "bstgames.gamegenre",
+        "pk": 30,
+        "fields": {
+            "genre": "RPG"
+        }
+    },
+    {
+        "model": "bstgames.gameplatform",
+        "pk": 1,
+        "fields": {
+            "platform": "Playstation 4"
+        }
+    },
+    {
+        "model": "bstgames.gameplatform",
+        "pk": 2,
+        "fields": {
+            "platform": "Playstation 5"
+        }
+    },
+    {
+        "model": "bstgames.gameplatform",
+        "pk": 5,
+        "fields": {
+            "platform": "Nintendo Switch"
+        }
+    },
+    {
+        "model": "bstgames.gameplatform",
+        "pk": 6,
+        "fields": {
+            "platform": "Xbox One"
+        }
+    },
+    {
+        "model": "bstgames.gameplatform",
+        "pk": 9,
+        "fields": {
+            "platform": "Xbox 360"
+        }
+    },
+    {
+        "model": "bstgames.gamedeveloper",
+        "pk": 1,
+        "fields": {
+            "developer": "Guerrilla Games"
+        }
+    },
+    {
+        "model": "bstgames.gamedeveloper",
+        "pk": 4,
+        "fields": {
+            "developer": "Naughty Dog"
+        }
+    },
+    {
+        "model": "bstgames.gamedeveloper",
+        "pk": 5,
+        "fields": {
+            "developer": "ArenaNet"
+        }
+    },
+    {
+        "model": "bstgames.gamedeveloper",
+        "pk": 6,
+        "fields": {
+            "developer": "Sucker Punch Productions"
+        }
+    },
+    {
+        "model": "bstgames.gamedeveloper",
+        "pk": 7,
+        "fields": {
+            "developer": "Ubisoft"
+        }
+    },
+    {
+        "model": "bstgames.gamedeveloper",
+        "pk": 8,
+        "fields": {
+            "developer": "Square Enix"
+        }
+    },
+    {
+        "model": "bstgames.gamedeveloper",
+        "pk": 9,
+        "fields": {
+            "developer": "Nintendo"
+        }
+    },
+    {
+        "model": "bstgames.gamedeveloper",
+        "pk": 11,
+        "fields": {
+            "developer": "Rockstar North"
+        }
+    },
+    {
+        "model": "bstgames.gamedeveloper",
+        "pk": 12,
+        "fields": {
+            "developer": "Sledgehammer Games"
+        }
+    },
+    {
+        "model": "bstgames.gamepublisher",
+        "pk": 1,
+        "fields": {
+            "publisher": "Sony Computer Entertainment, Inc. (SCEI)"
+        }
+    },
+    {
+        "model": "bstgames.gamepublisher",
+        "pk": 2,
+        "fields": {
+            "publisher": "NCSOFT"
+        }
+    },
+    {
+        "model": "bstgames.gamepublisher",
+        "pk": 3,
+        "fields": {
+            "publisher": "Ubisoft"
+        }
+    },
+    {
+        "model": "bstgames.gamepublisher",
+        "pk": 4,
+        "fields": {
+            "publisher": "Square Enix"
+        }
+    },
+    {
+        "model": "bstgames.gamepublisher",
+        "pk": 5,
+        "fields": {
+            "publisher": "Nintendo"
+        }
+    },
+    {
+        "model": "bstgames.gamepublisher",
+        "pk": 7,
+        "fields": {
+            "publisher": "Rockstar Games"
+        }
+    },
+    {
+        "model": "bstgames.gamepublisher",
+        "pk": 8,
+        "fields": {
+            "publisher": "Activision"
+        }
+    },
+    {
+        "model": "bstgames.game",
+        "pk": 7,
+        "fields": {
+            "game": "The Last of Us Part II",
+            "description": "Five years after their dangerous journey across the post-pandemic United States, Ellie and Joel have settled down in Jackson, Wyoming. Living amongst a thriving community of survivors has allowed them peace and stability, despite the constant threat of the infected and other, more desperate survivors. When a violent event disrupts that peace, Ellie embarks on a relentless journey to carry out justice and find closure. As she hunts those responsible one by one, she is confronted with the devastating physical and emotional repercussions of her actions.",
+            "developer": 4,
+            "publisher": 1,
+            "age_rating": 17
+        }
+    },
+    {
+        "model": "bstgames.game",
+        "pk": 10,
+        "fields": {
+            "game": "Horizon Zero Dawn",
+            "description": "Become Aloy in Horizon Zero Dawn Complete Edition for PlayStation4, and experience nature versus machine with stunning graphics. This RPG features an immersive storyline based on puzzling through the history of a post-apocalyptic world. Vibrant landscapes and cutting-edge technology collide in Horizon Zero Dawn Complete Edition, creating a memorable gaming experience.",
+            "developer": 1,
+            "publisher": 1,
+            "age_rating": 13
+        }
+    },
+    {
+        "model": "bstgames.game",
+        "pk": 13,
+        "fields": {
+            "game": "Ghost of Tsushima",
+            "description": "In the late 13th century, the Mongol empire has laid waste to entire nations along their campaign to conquer the East. Tsushima Island is all that stands between mainland Japan and a massive Mongol invasion fleet led by the ruthless and cunning general, Khotun Khan. As the island burns in the wake of the first wave of the Mongol assault, courageous samurai warrior Jin Sakai stands resolute. As one of the last surviving members of his clan, Jin is resolved to do whatever it takes, at any cost, to protect his people and reclaim his home. He must set aside the traditions that have shaped him as a warrior to forge a new path, the path of the Ghost, and wage an unconventional war for the freedom of Tsushima.",
+            "developer": 6,
+            "publisher": 1,
+            "age_rating": 17
+        }
+    },
+    {
+        "model": "bstgames.game",
+        "pk": 14,
+        "fields": {
+            "game": "Assassin's Creed Valhalla",
+            "description": "Upgrade to the digital PlayStation 5 version of the game at no additional cost.*\r\n*CONDITIONS AND RESTRICTIONS APPLY. To upgrade eligible PS4 physical disc copies, players need a PS5 console with a disc drive. Visit PlayStation.com/help for details.\r\nBecome Eivor, a legendary Viking raider on a quest for glory. Explore England's Dark Ages as you raid your enemies, grow your settlement, and build your political power.",
+            "developer": 7,
+            "publisher": 3,
+            "age_rating": 17
+        }
+    },
+    {
+        "model": "bstgames.game",
+        "pk": 15,
+        "fields": {
+            "game": "Final Fantasy VII Remake",
+            "description": "A spectacular reimagining of one of the most visionary games ever, FINAL FANTASY VII REMAKE rebuilds and expands the legendary RPG for today. The first game in the FINAL FANTASY VII REMAKE project, delivering a level of depth inconceivable for the original. Mind-blowing story, unforgettable characters, epic battles and technical excellence collide. The world has fallen under the control of the Shinra Electric Power Company, a shadowy corporation controlling the planet's very life force as mako energy. In the sprawling city of Midgar, an anti-Shinra organization calling themselves Avalanche have stepped up their resistance. Cloud Strife, a former member of Shinra's elite SOLDIER unit now turned mercenary, lends his aid to the group, unaware of the epic consequences that await him.",
+            "developer": 8,
+            "publisher": 4,
+            "age_rating": 13
+        }
+    },
+    {
+        "model": "bstgames.game",
+        "pk": 17,
+        "fields": {
+            "game": "The Legend of Zelda: Breath of the Wild",
+            "description": "Forget everything you know about The Legend of Zelda games. Step into a world of discovery, exploration, and adventure in The Legend of Zelda: Breath of the Wild, a boundary-breaking new game in the acclaimed series. Travel across vast fields, through forests, and to mountain peaks as you discover what has become of the kingdom of Hyrule in this stunning Open-Air Adventure. Now on Nintendo Switch, your journey is freer and more open than ever. Take your system anywhere, and adventure as Link any way you like.\r\n© 2017 Nintendo. The Legend of Zelda and Nintendo Switch are trademarks of Nintendo.",
+            "developer": 9,
+            "publisher": 5,
+            "age_rating": 10
+        }
+    },
+    {
+        "model": "bstgames.game",
+        "pk": 18,
+        "fields": {
+            "game": "Grand Theft Auto V",
+            "description": "The Grand Theft Auto V: Premium Edition is available for PS4 and includes the complete Grand Theft Auto V story experience, the ever-evolving world of Grand Theft Auto Online, and all the existing gameplay upgrades and content, including The Doomsday Heist, Gunrunning, Smuggler's Run, Bikers and much more. You'll also get the Criminal Enterprise starter pack.",
+            "developer": 11,
+            "publisher": 7,
+            "age_rating": 17
+        }
+    },
+    {
+        "model": "bstgames.game",
+        "pk": 19,
+        "fields": {
+            "game": "Call of Duty Vanguard",
+            "description": "Call of Duty: Vanguard - PS4 Standard Edition",
+            "developer": 12,
+            "publisher": 8,
+            "age_rating": 17
+        }
+    },
+    {
+        "model": "bstgames.game",
+        "pk": 20,
+        "fields": {
+            "game": "Far Cry 6",
+            "description": "Upgrade to the digital PlayStation 5 version of the game at no additional cost.*\r\n*CONDITIONS AND RESTRICTIONS APPLY. To upgrade eligible PS4 physical disc copies, players need a PS5 console with a disc drive. Visit PlayStation.com/help for details.\r\nWelcome to Yara, a tropical paradise frozen in time. As the dictator of Yara, Antón Castillo is intent on restoring his nation back to its former glory by any means, with his son, Diego, following in his bloody footsteps. Their oppressive rule has ignited a revolution.",
+            "developer": 7,
+            "publisher": 3,
+            "age_rating": 17
+        }
+    },
+    {
+        "model": "bstgames.gameplatformimage",
+        "pk": 1,
+        "fields": {
+            "gamegameplatform": 17,
+            "image": "games/platforms/17_far_cry_6.jpg",
+            "default": true
+        }
+    },
+    {
+        "model": "bstgames.gameplatformimage",
+        "pk": 2,
+        "fields": {
+            "gamegameplatform": 18,
+            "image": "games/platforms/18_far_cry_6_ps5.jpg",
+            "default": true
+        }
+    },
+    {
+        "model": "bstgames.gameplatformimage",
+        "pk": 3,
+        "fields": {
+            "gamegameplatform": 17,
+            "image": "games/platforms/17_far_cry_6_2.jpg",
+            "default": false
+        }
+    },
+    {
+        "model": "bstgames.gameplatformimage",
+        "pk": 4,
+        "fields": {
+            "gamegameplatform": 23,
+            "image": "games/platforms/23_far_cry_6_xboxone.jpg",
+            "default": true
+        }
+    },
+    {
+        "model": "bstgames.gameplatformimage",
+        "pk": 5,
+        "fields": {
+            "gamegameplatform": 23,
+            "image": "games/platforms/23_far_cry_6_3.jpg",
+            "default": false
+        }
+    },
+    {
+        "model": "bstgames.gameplatformimage",
+        "pk": 6,
+        "fields": {
+            "gamegameplatform": 1,
+            "image": "games/platforms/1_last_of_us_2.jpg",
+            "default": true
+        }
+    },
+    {
+        "model": "bstgames.gameplatformimage",
+        "pk": 7,
+        "fields": {
+            "gamegameplatform": 1,
+            "image": "games/platforms/1_last_of_us_2_2.jpg",
+            "default": false
+        }
+    },
+    {
+        "model": "bstgames.gameplatformimage",
+        "pk": 8,
+        "fields": {
+            "gamegameplatform": 1,
+            "image": "games/platforms/1_last_of_us_2_3.jpg",
+            "default": false
+        }
+    },
+    {
+        "model": "bstgames.gameplatformimage",
+        "pk": 9,
+        "fields": {
+            "gamegameplatform": 1,
+            "image": "games/platforms/1_last_of_us_2_4.jpg",
+            "default": false
+        }
+    },
+    {
+        "model": "bstgames.gameplatformimage",
+        "pk": 10,
+        "fields": {
+            "gamegameplatform": 1,
+            "image": "games/platforms/1_last_of_us_2_5.jpg",
+            "default": false
+        }
+    },
+    {
+        "model": "bstgames.gameplatformimage",
+        "pk": 11,
+        "fields": {
+            "gamegameplatform": 1,
+            "image": "games/platforms/1_last_of_us_2_6.jpg",
+            "default": false
+        }
+    },
+    {
+        "model": "bstgames.gameplatformimage",
+        "pk": 14,
+        "fields": {
+            "gamegameplatform": 3,
+            "image": "games/platforms/3_horizon_zero_dawn.jpg",
+            "default": true
+        }
+    },
+    {
+        "model": "bstgames.gameplatformimage",
+        "pk": 17,
+        "fields": {
+            "gamegameplatform": 6,
+            "image": "games/platforms/6_ghost_of_tsushima.jpg",
+            "default": true
+        }
+    },
+    {
+        "model": "bstgames.gameplatformimage",
+        "pk": 19,
+        "fields": {
+            "gamegameplatform": 8,
+            "image": "games/platforms/8_assassins_creed_valhalla.jpg",
+            "default": true
+        }
+    },
+    {
+        "model": "bstgames.gameplatformimage",
+        "pk": 20,
+        "fields": {
+            "gamegameplatform": 9,
+            "image": "games/platforms/9_assassins_creed_valhalla_ps5.jpg",
+            "default": true
+        }
+    },
+    {
+        "model": "bstgames.gameplatformimage",
+        "pk": 21,
+        "fields": {
+            "gamegameplatform": 10,
+            "image": "games/platforms/10_final_fantasy_vii.jpg",
+            "default": true
+        }
+    },
+    {
+        "model": "bstgames.gameplatformimage",
+        "pk": 22,
+        "fields": {
+            "gamegameplatform": 11,
+            "image": "games/platforms/11_final_fantasy_vii_ps5.jpg",
+            "default": true
+        }
+    },
+    {
+        "model": "bstgames.gameplatformimage",
+        "pk": 23,
+        "fields": {
+            "gamegameplatform": 12,
+            "image": "games/platforms/12_zelda.jpg",
+            "default": true
+        }
+    },
+    {
+        "model": "bstgames.gameplatformimage",
+        "pk": 24,
+        "fields": {
+            "gamegameplatform": 13,
+            "image": "games/platforms/13_gta_v.jpg",
+            "default": true
+        }
+    },
+    {
+        "model": "bstgames.gameplatformimage",
+        "pk": 25,
+        "fields": {
+            "gamegameplatform": 14,
+            "image": "games/platforms/14_gta_v_xboxone.jpg",
+            "default": true
+        }
+    },
+    {
+        "model": "bstgames.gameplatformimage",
+        "pk": 26,
+        "fields": {
+            "gamegameplatform": 15,
+            "image": "games/platforms/15_cod_vanguard.jpg",
+            "default": true
+        }
+    },
+    {
+        "model": "bstgames.gameplatformimage",
+        "pk": 27,
+        "fields": {
+            "gamegameplatform": 16,
+            "image": "games/platforms/16_cod_vanguard_ps5.jpg",
+            "default": true
+        }
+    },
+    {
+        "model": "bstgames.gameplatformimage",
+        "pk": 30,
+        "fields": {
+            "gamegameplatform": 24,
+            "image": "games/platforms/24_assassins_creed_valhalla_xboxone.jpg",
+            "default": true
+        }
+    },
+    {
+        "model": "bstgames.gamegameplatform",
+        "pk": 1,
+        "fields": {
+            "game": 7,
+            "gameplatform": 1,
+            "metascore": 93,
+            "release_date": "2020-06-19"
+        }
+    },
+    {
+        "model": "bstgames.gamegameplatform",
+        "pk": 3,
+        "fields": {
+            "game": 10,
+            "gameplatform": 1,
+            "metascore": 89,
+            "release_date": "2017-02-28"
+        }
+    },
+    {
+        "model": "bstgames.gamegameplatform",
+        "pk": 6,
+        "fields": {
+            "game": 13,
+            "gameplatform": 1,
+            "metascore": 83,
+            "release_date": "2020-07-17"
+        }
+    },
+    {
+        "model": "bstgames.gamegameplatform",
+        "pk": 8,
+        "fields": {
+            "game": 14,
+            "gameplatform": 1,
+            "metascore": 80,
+            "release_date": "2020-11-10"
+        }
+    },
+    {
+        "model": "bstgames.gamegameplatform",
+        "pk": 9,
+        "fields": {
+            "game": 14,
+            "gameplatform": 2,
+            "metascore": 84,
+            "release_date": "2020-11-10"
+        }
+    },
+    {
+        "model": "bstgames.gamegameplatform",
+        "pk": 10,
+        "fields": {
+            "game": 15,
+            "gameplatform": 1,
+            "metascore": 87,
+            "release_date": "2020-04-10"
+        }
+    },
+    {
+        "model": "bstgames.gamegameplatform",
+        "pk": 11,
+        "fields": {
+            "game": 15,
+            "gameplatform": 2,
+            "metascore": 89,
+            "release_date": "2020-04-10"
+        }
+    },
+    {
+        "model": "bstgames.gamegameplatform",
+        "pk": 12,
+        "fields": {
+            "game": 17,
+            "gameplatform": 5,
+            "metascore": 97,
+            "release_date": "2017-03-03"
+        }
+    },
+    {
+        "model": "bstgames.gamegameplatform",
+        "pk": 13,
+        "fields": {
+            "game": 18,
+            "gameplatform": 1,
+            "metascore": 97,
+            "release_date": "2014-11-18"
+        }
+    },
+    {
+        "model": "bstgames.gamegameplatform",
+        "pk": 14,
+        "fields": {
+            "game": 18,
+            "gameplatform": 6,
+            "metascore": 97,
+            "release_date": "2014-11-18"
+        }
+    },
+    {
+        "model": "bstgames.gamegameplatform",
+        "pk": 15,
+        "fields": {
+            "game": 19,
+            "gameplatform": 1,
+            "metascore": null,
+            "release_date": "2021-11-05"
+        }
+    },
+    {
+        "model": "bstgames.gamegameplatform",
+        "pk": 16,
+        "fields": {
+            "game": 19,
+            "gameplatform": 2,
+            "metascore": 73,
+            "release_date": "2021-11-05"
+        }
+    },
+    {
+        "model": "bstgames.gamegameplatform",
+        "pk": 17,
+        "fields": {
+            "game": 20,
+            "gameplatform": 1,
+            "metascore": null,
+            "release_date": "2021-10-07"
+        }
+    },
+    {
+        "model": "bstgames.gamegameplatform",
+        "pk": 18,
+        "fields": {
+            "game": 20,
+            "gameplatform": 2,
+            "metascore": 74,
+            "release_date": "2021-10-07"
+        }
+    },
+    {
+        "model": "bstgames.gamegameplatform",
+        "pk": 23,
+        "fields": {
+            "game": 20,
+            "gameplatform": 6,
+            "metascore": null,
+            "release_date": "2021-10-07"
+        }
+    },
+    {
+        "model": "bstgames.gamegameplatform",
+        "pk": 24,
+        "fields": {
+            "game": 14,
+            "gameplatform": 6,
+            "metascore": 82,
+            "release_date": "2020-11-10"
+        }
+    },
+    {
+        "model": "bstgames.gamegamegenre",
+        "pk": 47,
+        "fields": {
+            "game": 7,
+            "gamegenre": 28
+        }
+    },
+    {
+        "model": "bstgames.gamegamegenre",
+        "pk": 48,
+        "fields": {
+            "game": 7,
+            "gamegenre": 29
+        }
+    },
+    {
+        "model": "bstgames.gamegamegenre",
+        "pk": 49,
+        "fields": {
+            "game": 10,
+            "gamegenre": 1
+        }
+    },
+    {
+        "model": "bstgames.gamegamegenre",
+        "pk": 50,
+        "fields": {
+            "game": 10,
+            "gamegenre": 29
+        }
+    },
+    {
+        "model": "bstgames.gamegamegenre",
+        "pk": 56,
+        "fields": {
+            "game": 13,
+            "gamegenre": 28
+        }
+    },
+    {
+        "model": "bstgames.gamegamegenre",
+        "pk": 57,
+        "fields": {
+            "game": 13,
+            "gamegenre": 29
+        }
+    },
+    {
+        "model": "bstgames.gamegamegenre",
+        "pk": 58,
+        "fields": {
+            "game": 14,
+            "gamegenre": 28
+        }
+    },
+    {
+        "model": "bstgames.gamegamegenre",
+        "pk": 59,
+        "fields": {
+            "game": 14,
+            "gamegenre": 29
+        }
+    },
+    {
+        "model": "bstgames.gamegamegenre",
+        "pk": 60,
+        "fields": {
+            "game": 15,
+            "gamegenre": 30
+        }
+    },
+    {
+        "model": "bstgames.gamegamegenre",
+        "pk": 61,
+        "fields": {
+            "game": 15,
+            "gamegenre": 29
+        }
+    },
+    {
+        "model": "bstgames.gamegamegenre",
+        "pk": 65,
+        "fields": {
+            "game": 17,
+            "gamegenre": 28
+        }
+    },
+    {
+        "model": "bstgames.gamegamegenre",
+        "pk": 66,
+        "fields": {
+            "game": 17,
+            "gamegenre": 29
+        }
+    },
+    {
+        "model": "bstgames.gamegamegenre",
+        "pk": 69,
+        "fields": {
+            "game": 19,
+            "gamegenre": 27
+        }
+    },
+    {
+        "model": "bstgames.gamegamegenre",
+        "pk": 70,
+        "fields": {
+            "game": 18,
+            "gamegenre": 28
+        }
+    },
+    {
+        "model": "bstgames.gamegamegenre",
+        "pk": 71,
+        "fields": {
+            "game": 18,
+            "gamegenre": 29
+        }
+    },
+    {
+        "model": "bstgames.gamegamegenre",
+        "pk": 72,
+        "fields": {
+            "game": 20,
+            "gamegenre": 28
+        }
+    },
+    {
+        "model": "bstgames.gamegamegenre",
+        "pk": 73,
+        "fields": {
+            "game": 20,
+            "gamegenre": 29
+        }
+    }
+]
