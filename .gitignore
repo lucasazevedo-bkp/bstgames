@@ -1,4 +1,5 @@
 *.env
 *.mo
-media
+media/*
+!image-not-found.png
 __pycache__
