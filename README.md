@@ -32,6 +32,7 @@ Run: docker, migrations, fixtures and create superuser to access /admin:
 docker-compose up
 # Open new terminal
 docker exec bstgames_web python manage.py migrate
+# Run fixtures only if you want to populate the database
 docker exec bstgames_web python manage.py loaddata bstgames.json
 docker exec -it bstgames_web python manage.py createsuperuser
 ```
@@ -55,6 +56,7 @@ Install the requirements, run: migrations, fixtures, server and create superuser
 ```sh
 pip install -r requirements.txt
 python manage.py migrate
+# Run fixtures only if you want to populate the database
 python manage.py loaddata bstgames.json
 python manage.py runserver
 # Open new terminal
