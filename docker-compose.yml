@@ -6,10 +6,9 @@ services:
     image: bstgames:latest
     container_name: bstgames_web
     env_file:
-      - .env
-    command: > 
-      bash -c "chmod +x wait-for-postgres.sh
-      && ./wait-for-postgres.sh db python manage.py runserver 0.0.0.0:8000"
+      - web.env
+      - db.env
+    command: bash -c "./wait-for-postgres.sh python manage.py runserver 0.0.0.0:8000"
     volumes:
       - .:/app
     ports:
@@ -22,7 +21,7 @@ services:
     ports: 
       - 5432:5432
     env_file:
-      - .env
+      - db.env
     volumes:
       - postgres_data:/var/lib/postgresql/data/
 

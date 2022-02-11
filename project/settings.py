@@ -10,7 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
-import os
+from dotenv import dotenv_values
 from pathlib import Path
 from django.contrib.messages import constants as messages
 
@@ -22,7 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', '')
+SECRET_KEY = dotenv_values('web.env')['DJANGO_SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -81,13 +81,20 @@ WSGI_APPLICATION = 'project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+db_env = dotenv_values('db.env')
+
+if 'POSTGRES_HOST' in db_env:
+    db_host = db_env['POSTGRES_HOST']
+else:
+    db_host = 'db'
+
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": os.environ.get('POSTGRES_USER', ''),
-        "USER": os.environ.get('POSTGRES_USER', ''),
-        "PASSWORD": os.environ.get('POSTGRES_PASSWORD', ''),
-        "HOST": os.environ.get('POSTGRES_HOST', ''),
+        "NAME": db_env['POSTGRES_USER'],
+        "USER": db_env['POSTGRES_USER'],
+        "PASSWORD": db_env['POSTGRES_PASSWORD'],
+        "HOST": db_host,
         "PORT": 5432,
     }
 }

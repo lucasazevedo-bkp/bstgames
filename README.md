@@ -10,43 +10,54 @@
 
 ## Installation
 
+Go to the root directory:
+
 **With Docker**:
 
-Add an .env file in the root directory with the following variables:
+Add web.env and db.env files and fill in the variables:
 
 ```sh  
-# .env content
-# for example, COMPOSE_PROJECT_NAME=bstgames
+# web.env
 COMPOSE_PROJECT_NAME=
+DJANGO_SECRET_KEY=
+
+# db.env 
 POSTGRES_USER=
 POSTGRES_PASSWORD=
-# if you are using Docker, it must be "db" for POSTGRES_HOST=db
-POSTGRES_HOST= 
-DJANGO_SECRET_KEY=
 ```
 
-Run the following command in the root directory:
+Run Docker:
 
 ```sh  
 docker-compose up
 ```
 
-**Without Docker**: 
+Open another terminal and run the migrations and create superuser to access /admin:
 
-Remember that Python and PostgreSQL (create the database manually) are needed, i recommend using a virtualenv. 
-Set the above environment variables on your OS and then run the following commands in the root directory:
+```sh  
+docker exec bstgames_web python manage.py migrate
+docker exec -it bstgames_web python manage.py createsuperuser
+```
+
+**Without Docker**:
+ 
+Add web.env and db.env files and fill in the variables:
+
+```sh  
+# web.env
+DJANGO_SECRET_KEY=
+
+# db.env 
+POSTGRES_USER=
+POSTGRES_PASSWORD=
+POSTGRES_HOST=
+```
+
+Install the requirements, run migrations/server and create superuser to access /admin:
 
 ```sh
 pip install -r requirements.txt
+python manage.py migrate
 python manage.py runserver
-```
-
-Create superuser to access /admin, run the following command in the root directory:
-
-```sh
-# With Docker
-docker exec -it bstgames_web python manage.py createsuperuser
-
-# Without Docker
 python manage.py createsuperuser
 ```
