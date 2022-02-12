@@ -3,3 +3,5 @@
 media/*
 !image-not-found.png
 __pycache__
+.coverage
+.coveragerc

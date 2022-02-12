@@ -58,7 +58,6 @@ pip install -r requirements.txt
 python manage.py migrate
 # Run fixtures only if you want to populate the database
 python manage.py loaddata bstgames.json
-python manage.py runserver
-# Open new terminal
 python manage.py createsuperuser
+python manage.py runserver
 ```
