@@ -37,21 +37,21 @@ class SendVerifyEmailFormTestCase(TestCase):
             username=self.email, email=self.email, password=self.password
         )
         valid_data = {'email': self.user.email, 'password': self.password}
-        invalid_data = {'email': self.user.email, 'password': self.invalid_password}
-        invalid_data2 = {'email': 'invalid@invalid.domain', 'password': self.invalid_password}
+        invalid_password = {'email': self.user.email, 'password': self.invalid_password}
+        invalid_email = {'email': 'invalid@invalid.domain', 'password': self.invalid_password}
         self.valid_form = SendVerifyEmailForm(valid_data)
-        self.invalid_form = SendVerifyEmailForm(invalid_data)
-        self.invalid_form2 = SendVerifyEmailForm(invalid_data2)
+        self.invalid_form_password = SendVerifyEmailForm(invalid_password)
+        self.invalid_form_email = SendVerifyEmailForm(invalid_email)
 
     def test_clean(self):
         self.assertTrue(self.valid_form.is_valid())
-        self.assertFalse(self.invalid_form.is_valid())
-        self.assertFalse(self.invalid_form2.is_valid())
+        self.assertFalse(self.invalid_form_password.is_valid())
+        self.assertFalse(self.invalid_form_email.is_valid())
 
     def test_get_user(self):
-        if self.valid_form.is_valid():
-            get_user = self.valid_form.get_user()
-            self.assertEqual(get_user, self.user)
+        self.valid_form.is_valid()
+        get_user = self.valid_form.get_user()
+        self.assertEqual(get_user, self.user)
 
 
 class EditProfileAddressFormTestCase(TestCase):
