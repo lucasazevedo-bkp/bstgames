@@ -37,17 +37,12 @@ class SendVerifyEmailForm(forms.Form):
     email = forms.EmailField(label=_('Email address'))
     password = forms.CharField(widget=forms.PasswordInput())
 
-    def __init__(self, request=None, *args, **kwargs):
-        self.request = request
-        self.user_cache = None
-        super().__init__(*args, **kwargs)
-
     def clean(self):
         email = self.cleaned_data.get('email')
         password = self.cleaned_data.get('password')
         
         if email and password:
-            self.user_cache = authenticate(self.request, username=email, password=password)
+            self.user_cache = authenticate(None, username=email, password=password)
             if self.user_cache is None:
                 raise ValidationError('Invalid email or password')
 
